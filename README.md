@@ -2,7 +2,7 @@
 
 If you want to make VR content, you have to support all of major HMDs.(Oculus and Vive at this moment :p) You may know supporting HMD devices only is very easy. You don't need any additional SDK or assets to track and support HMD deivces.
 Problem is supporting and tracking controllers. If you want to support both Oculus Touch and Vive Controller , you may import both SDKs. For Oculus Touch, You have to import Oculus Utilities for Unity rom Oculus Developer Center. And for Vive Controller, you have to import SteamVR Plugin from Unity Store. As a result, you have to use different prefabs and different codes to support both different controller systems. It is very annoying stuff for maintaining.
-Actually, you don't have to do it anymore, if your controll input system is simple. Unity provide OVR input APIs to track posion of controllers. To track controllers, you don't have to import additional SDKs from out of Unity. You can do it as using API built inside unity. Plus, You can get input of triggers and buttons from controllers using  basing Input system of Unity.
+Actually, you don't have to do it anymore, if your controll input system is simple. Unity provide [VR tracking APIs](https://docs.unity3d.com/ScriptReference/VR.InputTracking.html) to track posion of controllers. To track controllers, you don't have to import additional SDKs from out of Unity. You can do it as using API built inside unity. Plus, You can get input of triggers and buttons from controllers using  basing Input system of Unity.
 
 Core codes of trackig are in VRControllerTracking.cs : 
 

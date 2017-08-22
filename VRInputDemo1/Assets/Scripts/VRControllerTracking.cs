@@ -5,7 +5,7 @@ using UnityEngine.VR;
 
 public class VRControllerTracking : MonoBehaviour {
 
-	[SerializeField] VRNode whichNode;
+	[SerializeField] VRNode whichNode = VRNode.LeftHand;
 
 	Vector3 offsetPos;
 	Quaternion offsetRot;
@@ -26,9 +26,13 @@ public class VRControllerTracking : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 pos = basePos + InputTracking.GetLocalPosition (whichNode);
-		pos = offsetRot * pos;
-		Quaternion rot = offsetRot * InputTracking.GetLocalRotation (whichNode);
-		transform.SetPositionAndRotation (pos, rot);
+		// Without this code, you have to make sure the main camera starts from pos:0 rot:0. 
+		// This code works well for Oculus. But, Not works for Vive. I have to check it.
+		//Vector3 pos = basePos + InputTracking.GetLocalPosition (whichNode);
+		//pos = offsetRot * pos;
+		//Quaternion rot = offsetRot * InputTracking.GetLocalRotation (whichNode);
+
+		// At this moment, Make sure the main camera start from 0,0,0
+		transform.SetPositionAndRotation (InputTracking.GetLocalPosition (whichNode), InputTracking.GetLocalRotation (whichNode));
 	}
 }

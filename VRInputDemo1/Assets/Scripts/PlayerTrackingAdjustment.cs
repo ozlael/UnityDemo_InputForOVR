@@ -12,10 +12,10 @@ public class PlayerTrackingAdjustment : MonoBehaviour
 		//the ground and the player will be the correct height in the game
 		if (VRDevice.GetTrackingSpaceType () == TrackingSpaceType.RoomScale) {
 			Debug.Log ("Roomscale Tracking");
-			transform.localPosition = Vector3.zero;
+			//transform.localPosition = Vector3.zero;
 		} else {
 			Debug.Log ("Stationary Tracking");
-			transform.localPosition = Vector3.up * playerHeight;
+			transform.localPosition += Vector3.up * playerHeight;
 		}
 	}
 }

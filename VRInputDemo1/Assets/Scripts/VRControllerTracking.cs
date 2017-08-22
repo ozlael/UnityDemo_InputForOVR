@@ -7,10 +7,10 @@ public class VRControllerTracking : MonoBehaviour {
 
 	[SerializeField] VRNode whichNode = VRNode.LeftHand;
 
-	Vector3 offsetPos;
-	Quaternion offsetRot;
-	Vector3 basePos;
-	VRNode handNode;
+	//Vector3 offsetPos;
+	//Quaternion offsetRot;
+	//Vector3 basePos;
+	//VRNode handNode;
 
 	// Use this for initialization
 	void Start () {
@@ -19,9 +19,9 @@ public class VRControllerTracking : MonoBehaviour {
 			Destroy (this);
 		}
 
-		offsetPos = Camera.main.transform.position;
-		offsetRot = Camera.main.transform.rotation;
-		basePos = Quaternion.Inverse (offsetRot) * offsetPos;
+		//offsetPos = Camera.main.transform.position;
+		//offsetRot = Camera.main.transform.rotation;
+		//basePos = Quaternion.Inverse (offsetRot) * offsetPos;
 	}
 	
 	// Update is called once per frame
@@ -32,7 +32,8 @@ public class VRControllerTracking : MonoBehaviour {
 		//pos = offsetRot * pos;
 		//Quaternion rot = offsetRot * InputTracking.GetLocalRotation (whichNode);
 
-		// At this moment, Make sure the main camera start from 0,0,0
-		transform.SetPositionAndRotation (InputTracking.GetLocalPosition (whichNode), InputTracking.GetLocalRotation (whichNode));
+		// For now, Only depend on parent node
+		transform.localPosition = InputTracking.GetLocalPosition (whichNode);
+		transform.localRotation = InputTracking.GetLocalRotation (whichNode);
 	}
 }

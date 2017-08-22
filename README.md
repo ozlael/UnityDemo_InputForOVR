@@ -14,14 +14,18 @@ transform.localRotation = InputTracking.GetLocalRotation (whichNode);
 To get input of controllers, You may refer official manual : [Input table for OVR controllers](https://docs.unity3d.com/Manual/OpenVRControllers.html), [Input API](https://docs.unity3d.com/ScriptReference/Input.html), [Input Manager](https://docs.unity3d.com/Manual/class-InputManager.html). 
 It is the same with general game controllers. Look at the input mapping table. For example, if you want to get LeftHandTrigger, it will say Joystick Button 14 in there.
 
+Check Input Settings and LaserSwordControl.cs :
+```
+if (blade && Input.GetAxisRaw (inputNameToActiveBlade) > 0.1f) {
+```
+
 
 ## Getting Started
 
 Open test1 scene and play. you can see 2 swords sync well with controller devices.
 Oculus Touch : Squeez Hand triggers to spawn blades. Squeez Index triggers to charge blades. 
 it's the end. Notthing happen anymore :) Because, it is a demo to show how to track controllers and get input.
-
-[![the video](https://j.gifs.com/Q1Q9YZ.gif)](https://www.youtube.com/edit?o=U&video_id=nyIIXg_hNe0)
+[![the video](https://j.gifs.com/nZBwBp.gif)](https://www.youtube.com/watch?v=nyIIXg_hNe0)
 
 ### Prerequisites
 

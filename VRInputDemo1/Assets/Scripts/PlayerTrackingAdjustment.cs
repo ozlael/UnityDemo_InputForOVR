@@ -8,6 +8,10 @@ public class PlayerTrackingAdjustment : MonoBehaviour
 
 	void Start () 
 	{
+		if (VRSettings.enabled == false) {
+			Destroy (this);
+		}
+
 		//Roomscale VR will track a player's actual height while playing. As such, we need to position the camera on
 		//the ground and the player will be the correct height in the game
 		if (VRDevice.GetTrackingSpaceType () == TrackingSpaceType.RoomScale) {

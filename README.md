@@ -4,15 +4,11 @@ If you want to make VR content, you have to support all of major HMDs.(Oculus an
 Problem is supporting and tracking controllers. If you want to support both Oculus Touch and Vive Controller , you may import both SDKs. For Oculus Touch, You have to import Oculus Utilities for Unity rom Oculus Developer Center. And for Vive Controller, you have to import SteamVR Plugin from Unity Store. As a result, you have to use different prefabs and different codes to support both different controller systems. It is very annoying stuff for maintaining.
 Actually, you don't have to do it anymore, if your controll input system is simple. Unity provide [VR tracking APIs](https://docs.unity3d.com/ScriptReference/VR.InputTracking.html) to track posion of controllers. To track controllers, you don't have to import additional SDKs from out of Unity. You can do it as using API built inside unity. Plus, You can get input of triggers and buttons from controllers using  basing Input system of Unity.
 
-Core codes of trackig are in VRControllerTracking.cs : 
+Codes of trackig are in VRControllerTracking.cs : 
 
 ```
-// basePos = Quaternion.Inverse (offsetRot) * offsetPos <- from Start()
-// offset position and rotation is initial transform of the main camera.
-Vector3 pos = basePos + InputTracking.GetLocalPosition (whichNode);
-pos = offsetRot * pos;
-Quaternion rot = offsetRot * InputTracking.GetLocalRotation (whichNode);
-transform.SetPositionAndRotation (pos, rot);
+transform.localPosition = InputTracking.GetLocalPosition (whichNode);
+transform.localRotation = InputTracking.GetLocalRotation (whichNode);
 ```
 
 To get input of controllers, You may refer official manual : [Input table for OVR controllers](https://docs.unity3d.com/Manual/OpenVRControllers.html), [Input API](https://docs.unity3d.com/ScriptReference/Input.html), [Input Manager](https://docs.unity3d.com/Manual/class-InputManager.html). 
@@ -25,6 +21,7 @@ Open test1 scene and play. you can see 2 swords sync well with controller device
 Oculus Touch : Squeez Hand triggers to spawn blades. Squeez Index triggers to charge blades. 
 it's the end. Notthing happen anymore :) Because, it is a demo to show how to track controllers and get input.
 
+[![the video](https://j.gifs.com/Q1Q9YZ.gif)](https://www.youtube.com/edit?o=U&video_id=nyIIXg_hNe0)
 
 ### Prerequisites
 
@@ -33,5 +30,7 @@ Please note that assets inside this demo is free but only non-commercial use. Yp
 
 ## Acknowledgments
 
-* Not tested for Vive yet.
 * The Project is for Unity 2017.1 and more
+* If you have questions, ask me via Social Media.
+* Facebook : [ozlael.oz](https://www.facebook.com/ozlael.oz)
+* Twitter : [@ozlael](https://twitter.com/ozlael)
